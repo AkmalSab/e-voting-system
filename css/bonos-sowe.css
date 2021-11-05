@@ -1,15 +1,17 @@
 * {
-    /* font-family: 'Comfortaa', cursive; */
-    font-family: 'Poppins', sans-serif;
+     font-family: 'Poppins', sans-serif;
 }
-#title{
+.title{
+    text-align: center;
+}
+.subtitle{
     text-align: center;
 }
 #container{
     margin-left: 5%;
     margin-right: 5%;
 }
-#loginForm{
+.formClass{
     background-color: white;    
     width: 500px;
     padding: 50px;
@@ -40,12 +42,32 @@ input[type=radio]{
 #formRadio{
     width: 100%; 
 }
-#signIn{
+.formSubmit{
+    display: flex;
+    flex-wrap: wrap;
     margin-top: 20px;
     text-align: center;
 }
+.formSubmit > .buttonCol{
+    background-color: #f1f1f1;
+    width: 45%;
+    margin: auto;
+    text-align: center;
+    line-height: 75px;
+}
 button[type=submit]{
     background-color: #01A659;
+    width: 100%;
+    padding: 12px 20px;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: white;
+    cursor: pointer;
+}
+button[type=reset]{
+    background-color: orange;
     width: 100%;
     padding: 12px 20px;
     display: block;
@@ -67,10 +89,10 @@ button[type=submit]{
     #container{
         width: auto;        
     }
-    #loginForm{
+    .formClass{
         width: auto;
         padding: auto;
-        margin-top: 100px;
+        margin-top: 50px;
         margin-left: auto;
         margin-right: auto;
         border-radius: 4px;

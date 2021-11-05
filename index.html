@@ -6,13 +6,13 @@
     <link rel="stylesheet" href="css/bonos-sowe.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>E-undi</title>
 <body bgcolor="#ACD9FA">
-    <h1 id="title">E-Voting System</h1>
+    <h1 class="title">E-Voting System</h1>
     <div id="container">
-        <form id="loginForm" action="login.php" method="POST">
+        <form class="formClass" action="login.php" method="POST">
+            <h1 class="subtitle">Login</h1>
             <div>
                 <p class="formLabel">NRIC:</p>
                 <input placeholder="Last 4-Digits of NRIC" type="text" maxlength="4" onkeypress="return onlyNumberKey(event)" id="admin" name="admin" required>
@@ -31,11 +31,11 @@
                 <input type="radio" name="user_role" value="voter" required>
                 <label for="css">Voter</label><br>
             </div>
-            <div id="signIn">
+            <div class="formSubmit">
                 <button type="submit" class="formLabel">Sign In</button>
             </div>
             <div id="formRegister">
-                <p class="formLabel">No Account yet? <a href="#">Register Here</a></p>
+                <p class="formLabel">No Account yet? <a href="register.html">Register Here</a></p>
             </div>
         </form>
     </div>
