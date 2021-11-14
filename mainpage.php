@@ -18,6 +18,7 @@ if(isset($_SESSION['voter'])){
 <body style="background-image: url('images/bg.jpg'); overflow-y: hidden; " class="hold-transition login-page ">
 <div style="padding-top: 100px;" class="login-box">
 
+    <!-- akmalsab was here -->
     <div class="login-logo">
         <img src="https://img.icons8.com/small/40/000000/elections.png">
         <b style="color: #0a0a0a" >E-Undi</b>
