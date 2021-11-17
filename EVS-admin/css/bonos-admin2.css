@@ -1,0 +1,113 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+.title {
+  text-align: center;
+}
+.subtitle {
+  text-align: center;
+}
+#container {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.formClass {
+  background-color: white;
+  width: 500px;
+  padding: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 4px;
+}
+input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type="password"] {
+  width: 100%;
+  padding: 12px 20px;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type="radio"] {
+  cursor: pointer;
+}
+input[type="file"] {
+  cursor: pointer;
+  width: 100%;
+  padding: 12px 20px;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; 
+}
+
+#formRadio {
+  width: 100%;
+}
+.formSubmit {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  text-align: center;
+}
+.formSubmit > .buttonCol {
+  background-color: #f1f1f1;
+  width: 45%;
+  margin: auto;
+  text-align: center;
+  line-height: 75px;
+}
+button[type="submit"] {
+  background-color: #01a659;
+  width: 100%;
+  padding: 12px 20px;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+}
+button[type="reset"] {
+  background-color: orange;
+  width: 100%;
+  padding: 12px 20px;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+}
+
+.formLabel {
+  font-weight: 600;
+}
+
+#formRegister {
+  text-align: center;
+}
+
+
+
+/* responsive design */
+@media screen and (max-width: 600px) {
+  #container {
+    width: auto;
+  }
+  .formClass {
+    width: auto;
+    padding: auto;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4px;
+  }
+}
