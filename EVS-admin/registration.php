@@ -50,8 +50,8 @@ if(isset($_POST['add'])){
     }
 }
 else{
-    // redirect to homepage
-    header('location: home.html');
+    // redirect to register
+    header('location: register.php');
     exit();
 }    
 ?>
