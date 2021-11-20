@@ -1,5 +1,5 @@
 <?php
-    session_start();
+
     include 'php/dbconn.php';
 
     if(isset($_POST['login'])){
@@ -8,6 +8,12 @@
         $password = $_POST['password'];     
         $status = "Verified";
 
+        // check if data is empty
+        if(empty($admin) || empty($password)){
+            header('location: index.php?error=null');
+            exit();
+        }
+
         // sql to select user's row to check existence
         $sql = "SELECT * FROM admin WHERE admin_id = '$admin' AND status = '$status'";
         // run the query
@@ -15,8 +21,10 @@
 
         // user not found
         if($query->num_rows < 1){
-            $_SESSION['error'] = 'Incorrect credentials or account not Verify yet.';
-            echo 'Incorrect credentials or account not Verify yet.';
+            // $_SESSION['error'] = 'Incorrect credentials or account not Verify yet.';
+            // echo 'Incorrect credentials or account not Verify yet.';
+            header('location: index.php?error=notfound');
+            exit();
         } 
         // user found
         else{
@@ -24,20 +32,21 @@
             $row = $query->fetch_assoc();
             // verifying password
             if(password_verify($password, $row['password'])){
+                session_start();
                 $_SESSION['admin'] = $row['id'];
+                header('location: home.html');
+                exit();
             }
             // password mismatch
             else{
-                $_SESSION['error'] = 'Incorrect password';             
+                header('location: index.php?error=mismatch');
+                exit();        
             }
         }
-    }
-    // empty input
+    }    
     else{
-        $_SESSION['error'] = 'Input voter credentials first';
+        // empty input
+        header('location: index.php?error=null');
+        exit(); 
     }
-
-    // redirect to homepage
-    header('location: home.html');
-    exit();
 ?>

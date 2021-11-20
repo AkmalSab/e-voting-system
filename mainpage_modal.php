@@ -8,10 +8,10 @@
             </div>
             <div class="modal-body">             
                 <div class="text-center">
-                    <a style=" margin: 10px; font-size: large; border-radius: 15px; " href="EVS-admin/index.html" class="btn btn-info btn-block"> <i class="fa fa-user"></i> Admin</a>
+                    <a style=" margin: 10px; font-size: large; border-radius: 15px; " href="EVS-admin/index.php" class="btn btn-info btn-block"> <i class="fa fa-user"></i> Admin</a>
                 </div>
                 <div class="text-center">
-                    <a style=" margin: 10px; font-size: large; border-radius: 15px; " href="EVS-voter/index.html" class="btn btn-info btn-block"> <i class="fa fa-users"></i> Voter</a>
+                    <a style=" margin: 10px; font-size: large; border-radius: 15px; " href="EVS-voter/index.php" class="btn btn-info btn-block"> <i class="fa fa-users"></i> Voter</a>
                 </div>
             </div>
         </div>
