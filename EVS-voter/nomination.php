@@ -6,7 +6,7 @@
     <link rel = "icon" href ="../image/Logo%20E-Undi.png" type = "image/x-icon">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/bonos-admin.css">
+    <link rel="stylesheet" href="css/bonos-voter.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -15,27 +15,20 @@
     <p class="logo">EVS</p>
     <nav>
         <ul class="nav__links">
-            <li><a href="home.php">Dashboard</a></li>
-            <li><a href="#">Statistic</a></li>
-            <li><a href="votes.php">Votes</a></li>
-            <li><a href="voters.php">Voters</a></li>
-            <li><a href="position.php">Position</a></li>
-            <li><a href="candidate.php">Candidate</a></li>
+            <li><a href="home.php">Election</a></li>
+            <li><a href="nomination.php">Nomination</a></li>
         </ul>
     </nav>
     <a class="cta" href="logout.php">Logout</a>
-<!--
-    <a  href="#"> <img style="width:auto; height: 50px; padding: 10px;" src="images/logout.png"> </a>
--->
     <!--
         <p class="menu cta">Menu</p>
     -->
 </header>
 
 <div class="div1">
-    <h1 class="title">Dashboard</h1>
+    <h1 class="title">Nominated Election</h1>
     <div class="history">
-        <a href="home-history.html">History</a>
+        <a href="nominate.php">Nominate Yourself</a>
     </div>
 
     <div class="container">
@@ -47,7 +40,7 @@
                         <thead>
                         <tr class="trh">
                             <!--<th>Country</th>-->
-                            <th>Voting Title</th>
+                            <th>Election Title</th>
                             <th>Status</th>
                             <th>Candidates</th>
                             <th>Result</th>
@@ -55,44 +48,14 @@
                         </thead>
                         <tbody>
                         <tr class="tr1">
-                            <!--<td>Argentina</td>-->
-                            <td>MPP UTeM</td>
-                            <td>Ongoing</td>
+                            <td>BENDAHARI MPP UTEM</td>
+                            <td>ONGOING</td>
                             <td><a href="#">View</a></td>
                             <td><a href="#">View</a></td>
                         </tr>
                         <tr class="tr1">
-                            <!--<td>Australia</td>-->
-                            <td>MPP UiTM</td>
-                            <td>Ongoing</td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
-                        </tr>
-                        <tr class="tr1">
-                            <!--<td>Greece</td>-->
-                            <td>MPP UPM</td>
-                            <td>Ongoing</td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
-                        </tr>
-                        <tr class="tr1">
-                            <!--<td>Luxembourg</td>-->
-                            <td>MPP UPNM</td>
-                            <td>Ongoing</td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
-                        </tr>
-                        <tr class="tr1">
-                            <!--<td>Russia</td>-->
-                            <td>MPP UPSI</td>
-                            <td>Ongoing</td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
-                        </tr>
-                        <tr class="tr1">
-                            <!--<td>Sweden</td>-->
-                            <td>MPP USIM</td>
-                            <td>Ongoing</td>
+                            <td>PENGERUSI MPP UTEM</td>
+                            <td>ONGOING</td>
                             <td><a href="#">View</a></td>
                             <td><a href="#">View</a></td>
                         </tr>

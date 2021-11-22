@@ -24,18 +24,14 @@
         </ul>
     </nav>
     <a class="cta" href="logout.php">Logout</a>
-<!--
-    <a  href="#"> <img style="width:auto; height: 50px; padding: 10px;" src="images/logout.png"> </a>
--->
     <!--
         <p class="menu cta">Menu</p>
     -->
 </header>
 
 <div class="div1">
-    <h1 class="title">Dashboard</h1>
+    <h1 class="title">History</h1>
     <div class="history">
-        <a href="home-history.html">History</a>
     </div>
 
     <div class="container">
@@ -47,7 +43,7 @@
                         <thead>
                         <tr class="trh">
                             <!--<th>Country</th>-->
-                            <th>Voting Title</th>
+                            <th>Election Title</th>
                             <th>Status</th>
                             <th>Candidates</th>
                             <th>Result</th>
@@ -56,43 +52,8 @@
                         <tbody>
                         <tr class="tr1">
                             <!--<td>Argentina</td>-->
-                            <td>MPP UTeM</td>
-                            <td>Ongoing</td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
-                        </tr>
-                        <tr class="tr1">
-                            <!--<td>Australia</td>-->
-                            <td>MPP UiTM</td>
-                            <td>Ongoing</td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
-                        </tr>
-                        <tr class="tr1">
-                            <!--<td>Greece</td>-->
-                            <td>MPP UPM</td>
-                            <td>Ongoing</td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
-                        </tr>
-                        <tr class="tr1">
-                            <!--<td>Luxembourg</td>-->
-                            <td>MPP UPNM</td>
-                            <td>Ongoing</td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
-                        </tr>
-                        <tr class="tr1">
-                            <!--<td>Russia</td>-->
-                            <td>MPP UPSI</td>
-                            <td>Ongoing</td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
-                        </tr>
-                        <tr class="tr1">
-                            <!--<td>Sweden</td>-->
-                            <td>MPP USIM</td>
-                            <td>Ongoing</td>
+                            <td>Bendahari UTeM</td>
+                            <td>Finish</td>
                             <td><a href="#">View</a></td>
                             <td><a href="#">View</a></td>
                         </tr>

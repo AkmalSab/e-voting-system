@@ -24,18 +24,14 @@
         </ul>
     </nav>
     <a class="cta" href="logout.php">Logout</a>
-<!--
-    <a  href="#"> <img style="width:auto; height: 50px; padding: 10px;" src="images/logout.png"> </a>
--->
     <!--
         <p class="menu cta">Menu</p>
     -->
 </header>
 
 <div class="div1">
-    <h1 class="title">Dashboard</h1>
+    <h1 class="title">Position</h1>
     <div class="history">
-        <a href="home-history.html">History</a>
     </div>
 
     <div class="container">
@@ -47,54 +43,29 @@
                         <thead>
                         <tr class="trh">
                             <!--<th>Country</th>-->
-                            <th>Voting Title</th>
+                            <th>Description</th>
+                            <th>Maximum Vote</th>
                             <th>Status</th>
-                            <th>Candidates</th>
-                            <th>Result</th>
+                            <th>Start</th>
+                            <th>End</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr class="tr1">
                             <!--<td>Argentina</td>-->
-                            <td>MPP UTeM</td>
-                            <td>Ongoing</td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
+                            <td>AJK MPP UTeM</td>
+                            <td>1</td>
+                            <td>Finish</td>
+                            <td>2021-06-27 21:35:18</td>
+                            <td>2021-06-28 18:30:00</td>
                         </tr>
                         <tr class="tr1">
                             <!--<td>Australia</td>-->
-                            <td>MPP UiTM</td>
-                            <td>Ongoing</td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
-                        </tr>
-                        <tr class="tr1">
-                            <!--<td>Greece</td>-->
-                            <td>MPP UPM</td>
-                            <td>Ongoing</td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
-                        </tr>
-                        <tr class="tr1">
-                            <!--<td>Luxembourg</td>-->
-                            <td>MPP UPNM</td>
-                            <td>Ongoing</td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
-                        </tr>
-                        <tr class="tr1">
-                            <!--<td>Russia</td>-->
-                            <td>MPP UPSI</td>
-                            <td>Ongoing</td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
-                        </tr>
-                        <tr class="tr1">
-                            <!--<td>Sweden</td>-->
-                            <td>MPP USIM</td>
-                            <td>Ongoing</td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
+                            <td>Pemilihan MPP</td>
+                            <td>1</td>
+                            <td>Cancelled</td>
+                            <td>2021-08-30 13:02:28</td>
+                            <td>2021-08-31 22:02:00</td>
                         </tr>
                         </tbody>
                     </table>
