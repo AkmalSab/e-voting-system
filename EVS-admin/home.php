@@ -24,9 +24,9 @@
         </ul>
     </nav>
     <a class="cta" href="logout.php">Logout</a>
-<!--
-    <a  href="#"> <img style="width:auto; height: 50px; padding: 10px;" src="images/logout.png"> </a>
--->
+    <!--
+        <a  href="#"> <img style="width:auto; height: 50px; padding: 10px;" src="images/logout.png"> </a>
+    -->
     <!--
         <p class="menu cta">Menu</p>
     -->
@@ -35,7 +35,7 @@
 <div class="div1">
     <h1 class="title">Dashboard</h1>
     <div class="history">
-        <a href="home-history.html">History</a>
+        <a href="home-history.php">History</a>
     </div>
 
     <div class="container">

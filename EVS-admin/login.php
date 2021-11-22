@@ -34,7 +34,7 @@
             if(password_verify($password, $row['password'])){
                 session_start();
                 $_SESSION['admin'] = $row['id'];
-                header('location: home.html');
+                header('location: home.php');
                 exit();
             }
             // password mismatch

@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>E-Voting System</title>
-    <link rel = "icon" href ="../image/Logo%20E-Undi.png" type = "image/x-icon">
+    <link rel = "icon" href ="../images/Logo_E-Undi.png" type = "image/x-icon">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bonos-voter.css">
@@ -26,9 +26,8 @@
 </header>
 
 <div class="div1">
-    <h1 class="title">Election</h1>
+    <h1 class="title">Nominate Yourself</h1>
     <div class="history">
-        <a href="#">Enroll Election</a>
     </div>
 
     <div class="container">
@@ -41,21 +40,15 @@
                         <tr class="trh">
                             <!--<th>Country</th>-->
                             <th>Election Title</th>
-                            <th>Election Start</th>
-                            <th>Election End</th>
-                            <th>Candidates</th>
-                            <th>Result</th>
-                            <th>Voting</th>
+                            <th>Nomination Due Date</th>
+                            <th>Nominate</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr class="tr1">
-                            <td>SETIAUSAHA MPP UTEM	</td>
-                            <td>2021-09-04 23:20:38</td>
-                            <td>2021-09-04 23:19:50</td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
+                            <td>TIMBALAN MPP UTEM</td>
+                            <td>2021-06-27 21:50:00</td>
+                            <td><a href="#">Nominate Now</a></td>
                         </tr>
                         </tbody>
                     </table>

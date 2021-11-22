@@ -40,7 +40,7 @@
         // execute query
         $vquery = $conn->query($sql2);
         // redirect user to homepage
-        header('location: home.html');
+        header('location: home.php');
         exit();
 	}
     else{        
