@@ -49,14 +49,54 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="tr1">
-                            <td>SETIAUSAHA MPP UTEM	</td>
-                            <td>2021-09-04 23:20:38</td>
-                            <td>2021-09-04 23:19:50</td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
+                        <?php
+                        include 'php/dbconn.php';
+                        $sql2 = "SELECT * FROM voters";
+                        $vquery = $conn->query($sql2);
+                        $voter = $vquery->fetch_assoc();
+                        $query = "SELECT *, positions.status AS stat, positions.id AS id FROM candidates LEFT JOIN positions ON positions.id=candidates.position_id LEFT JOIN enroll ON enroll.position_id=positions.id where enroll.voters_id ='".$voter['id']."' GROUP BY positions.id";
+                        /*                                $query = "SELECT * FROM candidates LEFT JOIN positions ON positions.id=candidates.position_id where position_id IN (select voters_id FROM enroll where voters_id = '".$voter['id']."') GROUP BY positions.id";*/
+                        $result = mysqli_query($conn,$query)or die( mysqli_error($conn));
+                        while($row = mysqli_fetch_array($result)){
+                            $id = $row['id'];
+                            $description = $row['description'];
+                            if ($row['stat'] == 'Ongoing'){
+                                echo "
+                        <tr>
+                          <td style='text-transform: uppercase; padding-left: 100px;'>".$row['description']."</td>
+                          <td style='text-transform: uppercase; padding-left: 100px;'>".$row['startdate']."</td>
+                          <td style='text-transform: uppercase; padding-left: 100px;'>".$row['enddate']."</td>
+                          <td>
+                            <a href='#'> View </a>
+                          </td>
+                          <td>
+                            <a href='#'> View </a>
+                          </td>
+                          <td>
+                            <a href='#'> View </a>
+                          </td>
                         </tr>
+                      ";}
+                            elseif ($row['stat'] == 'Pending'){
+                                echo "
+                        <tr>
+                          <td style='text-transform: uppercase; padding-left: 100px;'>".$row['description']."</td>
+                          <td style='text-transform: uppercase; padding-left: 100px;'>".$row['startdate']."</td>
+                          <td style='text-transform: uppercase; padding-left: 100px;'>".$row['enddate']."</td>
+                          <td>
+                            <a href='#'> View </a>
+                          </td>
+                          <td>
+                            <a href='#'> View </a>
+                          </td>
+                          <td>
+                            <a href='#'> View </a>
+                          </td>
+                        </tr>
+                      ";
+                            }
+                        }
+                        ?>
                         </tbody>
                     </table>
                 </div><!--end of .table-responsive-->

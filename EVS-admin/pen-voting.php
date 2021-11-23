@@ -52,22 +52,27 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="tr1">
-                            <!--<td>Argentina</td>-->
-                            <td>5031</td>
-                            <td>MUHAMMAD AKMAL KHAIRI ABDUL HALIM</td>
-                            <td>AJK UTeM</td>
-                            <td>PENDING</td>
-                            <td>NOTIFY</td>
+                        <?php
+                        include 'php/dbconn.php';
+                        $sql2 = "SELECT * FROM admin";
+                        $vquery = $conn->query($sql2);
+                        $user = $vquery->fetch_assoc();
+                        $sql = "SELECT *,voters.id, voters.voters_id, voters.firstname,positions.description FROM voters LEFT JOIN enroll ON voters.id=enroll.voters_id LEFT JOIN positions ON enroll.position_id=positions.id WHERE enroll.status = 'Enrolled'";
+                        /*SELECT * FROM candidates LEFT JOIN positions ON positions.id=candidates.position_id where position_id IN (select position_id FROM candidates where candidate_id = '".$voter['voters_id']."') GROUP BY positions.id*/
+                        /*SELECT *, voters.firstname AS votfirst, voters.lastname AS votlast FROM votes LEFT JOIN voters ON voters.id=votes.voters_id WHERE votes.voters_id != voters.voters_id AND voters.status = 'VERIFIED'*/
+                        $query = $conn->query($sql) or die($conn->error);
+                        while($row = $query->fetch_assoc()){
+                            echo "
+                        <tr>
+                          <td>********".$row['voters_id']."</td>
+                          <td>".$row['firstname']."</td>
+                          <td>".$row['description']."</td>
+                          <td>PENDING VOTING</td>
+                          <td><button class='btn btn-warning btn-sm notify btn-flat' data-id='".$row['id']."'><i class='fa fa-bell'></i> Notify</button></td>
                         </tr>
-                        <tr class="tr1">
-                            <!--<td>Australia</td>-->
-                            <td>7761</td>
-                            <td>MUHAMMAD AKMAL SABRI</td>
-                            <td>AJK UTeM</td>
-                            <td>PENDING</td>
-                            <td>NOTIFY</td>
-                        </tr>
+                      ";
+                        }
+                        ?>
                         </tbody>
                     </table>
                 </div><!--end of .table-responsive-->
