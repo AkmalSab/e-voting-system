@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>E-Voting System</title>
-    <link rel = "icon" href ="../image/Logo%20E-Undi.png" type = "image/x-icon">
+    <link rel = "icon" href ="../images/Logo_E-Undi.png" type = "image/x-icon">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bonos-admin.css">
@@ -55,10 +55,7 @@
                         </thead>
                         <tbody>
                         <?php
-                        include 'php/dbconn.php';
-                        $sql2 = "SELECT * FROM admin";
-                        $vquery = $conn->query($sql2);
-                        $user = $vquery->fetch_assoc();
+                        include 'php/session.php';
                         $query = "SELECT * FROM candidates LEFT JOIN positions ON positions.id=candidates.position_id WHERE positions.status = 'Ongoing' AND positions.created_by = '".$user['admin_id']."' GROUP BY positions.priority";
                         $result = mysqli_query($conn,$query)or die( mysqli_error($conn));
                         while($row = mysqli_fetch_array($result)){

@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>E-Voting System</title>
-    <link rel = "icon" href ="../image/Logo%20E-Undi.png" type = "image/x-icon">
+    <link rel = "icon" href ="../images/Logo_E-Undi.png" type = "image/x-icon">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bonos-voter.css">
@@ -50,12 +50,9 @@
                         </thead>
                         <tbody>
                         <?php
-                        include 'php/dbconn.php';
-                        $sql2 = "SELECT * FROM voters";
-                        $vquery = $conn->query($sql2);
-                        $voter = $vquery->fetch_assoc();
+                        include 'php/session.php';
                         $query = "SELECT *, positions.status AS stat, positions.id AS id FROM candidates LEFT JOIN positions ON positions.id=candidates.position_id LEFT JOIN enroll ON enroll.position_id=positions.id where enroll.voters_id ='".$voter['id']."' GROUP BY positions.id";
-                        /*                                $query = "SELECT * FROM candidates LEFT JOIN positions ON positions.id=candidates.position_id where position_id IN (select voters_id FROM enroll where voters_id = '".$voter['id']."') GROUP BY positions.id";*/
+                        /*$query = "SELECT * FROM candidates LEFT JOIN positions ON positions.id=candidates.position_id where position_id IN (select voters_id FROM enroll where voters_id = '".$voter['id']."') GROUP BY positions.id";*/
                         $result = mysqli_query($conn,$query)or die( mysqli_error($conn));
                         while($row = mysqli_fetch_array($result)){
                             $id = $row['id'];

@@ -46,10 +46,7 @@
                         </thead>
                         <tbody>
                         <?php
-                        include 'php/dbconn.php';
-                        $sql2 = "SELECT * FROM voters";
-                        $vquery = $conn->query($sql2);
-                        $voter = $vquery->fetch_assoc();
+                        include 'php/session.php';
                         $query = "SELECT * FROM positions WHERE status = 'Pending'";
                         $result = mysqli_query($conn,$query);
                         while($row = mysqli_fetch_array($result)){

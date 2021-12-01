@@ -51,10 +51,7 @@
                         </thead>
                         <tbody>
                         <?php
-                        include 'php/dbconn.php';
-                        $sql2 = "SELECT * FROM admin";
-                        $vquery = $conn->query($sql2);
-                        $user = $vquery->fetch_assoc();
+                        include 'php/session.php';
                         $query = "SELECT * FROM candidates LEFT JOIN positions ON positions.id=candidates.position_id WHERE positions.status = 'Finish' AND positions.created_by = '".$user['admin_id']."' GROUP BY positions.priority";
                         $result = mysqli_query($conn,$query)or die( mysqli_error($conn));
                         while($row = mysqli_fetch_array($result)){

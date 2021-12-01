@@ -54,10 +54,7 @@
                         </thead>
                         <tbody>
                         <?php
-                        include 'php/dbconn.php';
-                        $sql2 = "SELECT * FROM admin";
-                        $vquery = $conn->query($sql2);
-                        $user = $vquery->fetch_assoc();
+                        include 'php/session.php';
                         $sql = "SELECT * FROM positions WHERE created_by = '".$user['admin_id']."' AND status != 'Finish' AND status != 'Cancelled' ORDER BY priority ASC";
                         $query = $conn->query($sql);
                         while($row = $query->fetch_assoc()){

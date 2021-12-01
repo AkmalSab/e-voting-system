@@ -48,10 +48,7 @@
                         </thead>
                         <tbody>
                         <?php
-                        include 'php/dbconn.php';
-                        $sql2 = "SELECT * FROM voters";
-                        $vquery = $conn->query($sql2);
-                        $voter = $vquery->fetch_assoc();
+                        include 'php/session.php';
                         $query = "SELECT * FROM candidates LEFT JOIN positions ON positions.id=candidates.position_id where position_id IN (select position_id FROM candidates where candidate_id = '".$voter['voters_id']."') GROUP BY positions.id";
                         $result = mysqli_query($conn,$query)  or die( mysqli_error($conn));
                         while($row = mysqli_fetch_array($result)){

@@ -53,10 +53,7 @@
                         </thead>
                         <tbody>
                         <?php
-                        include 'php/dbconn.php';
-                        $sql2 = "SELECT * FROM admin";
-                        $vquery = $conn->query($sql2);
-                        $user = $vquery->fetch_assoc();
+                        include 'php/session.php';
                         $sql = "SELECT *,voters.id, voters.voters_id, voters.firstname,positions.description FROM voters LEFT JOIN enroll ON voters.id=enroll.voters_id LEFT JOIN positions ON enroll.position_id=positions.id WHERE enroll.status = 'Enrolled'";
                         /*SELECT * FROM candidates LEFT JOIN positions ON positions.id=candidates.position_id where position_id IN (select position_id FROM candidates where candidate_id = '".$voter['voters_id']."') GROUP BY positions.id*/
                         /*SELECT *, voters.firstname AS votfirst, voters.lastname AS votlast FROM votes LEFT JOIN voters ON voters.id=votes.voters_id WHERE votes.voters_id != voters.voters_id AND voters.status = 'VERIFIED'*/

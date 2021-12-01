@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>E-Voting System</title>
-    <link rel = "icon" href ="../image/Logo%20E-Undi.png" type = "image/x-icon">
+    <link rel = "icon" href ="../images/Logo_E-Undi.png" type = "image/x-icon">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bonos-admin.css">
@@ -52,10 +52,7 @@
                         </thead>
                         <tbody>
                         <?php
-                        include 'php/dbconn.php';
-                        $sql2 = "SELECT * FROM admin";
-                        $vquery = $conn->query($sql2);
-                        $user = $vquery->fetch_assoc();
+                        include 'php/session.php';
                         $sql = "SELECT *, candidates.firstname AS canfirst, candidates.lastname AS canlast, voters.firstname AS votfirst, voters.lastname AS votlast FROM votes LEFT JOIN positions ON positions.id=votes.position_id LEFT JOIN candidates ON candidates.id=votes.candidate_id LEFT JOIN voters ON voters.id=votes.voters_id ORDER BY positions.priority ASC";
                         /*SELECT * FROM candidates LEFT JOIN positions ON positions.id=candidates.position_id where position_id IN (select position_id FROM candidates where candidate_id = '".$voter['voters_id']."') GROUP BY positions.id*/
                         $query = $conn->query($sql);
