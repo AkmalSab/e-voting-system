@@ -51,20 +51,29 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="tr1">
-                            <td>TIMBALAN MPP UTeM</td>
-                            <td><img class="photo" src="../images/hacker.png"></td>
-                            <td>ZULAZLI ZULKALRAIN</td>
-                            <td><a href="#">View</a></td>
-                            <td colspan="2" ><a href="#">Confirm</a> <a href="#"> Reject</a></td>
+                        <?php
+                        include 'php/session.php';
+                        $sql = "SELECT *, candidates.id AS canid FROM candidates LEFT JOIN positions ON positions.id=candidates.position_id WHERE candidates.status = 'Pending' ORDER BY positions.priority ASC";
+                        $query = $conn->query($sql);
+                        while($row = $query->fetch_assoc()){
+                            $image = (!empty($row['photo'])) ? '../images/'.$row['photo'] : '../images/profile.jpg';
+                            echo "
+                        <tr>
+                          <td>".$row['description']."</td>
+                          <td>
+                            <img src='".$image."' width='30px' height='30px'>
+                            <a href='#edit_photo' data-toggle='modal' class='pull-right photo' data-id='".$row['canid']."'><span class='fa fa-edit'></span></a>
+                          </td>
+                          <td>".$row['firstname']." ".$row['lastname']."</td>
+                          <td><a href='#platform' data-toggle='modal' class='btn btn-info btn-sm btn-flat platform' data-id='".$row['canid']."'><i class='fa fa-search'></i> View</a></td>
+                          <td>
+                            <button class='btn btn-success btn-sm approve btn-flat' data-id='".$row['canid']."'><i class='fa fa-check'></i> Confirm</button>
+                            <button class='btn btn-danger btn-sm reject btn-flat' data-id='".$row['canid']."'><i class='fa fa-trash'></i> Reject</button>
+                          </td>
                         </tr>
-                        <tr class="tr1">
-                            <td>TIMBALAN MPP UTeM</td>
-                            <td><img class="photo" src="../images/hacker.png"></td>
-                            <td>WAN MUHD ISMAT WAN AZMY</td>
-                            <td><a href="#">View</a></td>
-                            <td colspan="2" ><a href="#">Confirm</a> <a href="#"> Reject</a></td>
-                        </tr>
+                      ";
+                        }
+                        ?>
                         </tbody>
                     </table>
                 </div><!--end of .table-responsive-->

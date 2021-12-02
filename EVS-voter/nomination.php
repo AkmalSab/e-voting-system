@@ -47,18 +47,42 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="tr1">
-                            <td>BENDAHARI MPP UTEM</td>
-                            <td>ONGOING</td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
+                        <?php
+                        include 'php/session.php';
+                        $query = "SELECT * FROM candidates LEFT JOIN positions ON positions.id=candidates.position_id where position_id IN (select position_id FROM candidates where candidate_id = '".$voter['voters_id']."') GROUP BY positions.id";
+                        $result = mysqli_query($conn,$query)  or die( mysqli_error($conn));
+                        while($row = mysqli_fetch_array($result)){
+                            $id = $row['id'];
+                            $description = $row['description'];
+                            if ($row['status'] == 'Ongoing'){
+                                echo "
+                        <tr>
+                          <td style='text-transform: uppercase; padding-left: 100px;'>".$row['description']."</td>
+                          <td style='text-transform: uppercase; padding-left: 100px;'>".$row['status']."</td>
+                          <td>
+                          <a style='border-radius: 15px;' class='btn btn-info btn-sm btn-flat btn-block userinfo' data-id='".$id."'><i class='fa fa-search'></i> View</a>
+                          </td>
+                          <td>
+                          <a style='border-radius: 15px;' class='btn btn-info btn-sm btn-flat btn-block userresult' data-id='".$id."'><i class='fa fa-search'></i> View</a>
+                          </td>
                         </tr>
-                        <tr class="tr1">
-                            <td>PENGERUSI MPP UTEM</td>
-                            <td>ONGOING</td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
+                      ";}
+                            elseif ($row['status'] == 'Finish'){
+                                echo "
+                        <tr>
+                          <td style='text-transform: uppercase; padding-left: 100px;'>".$row['description']."</td>
+                          <td style='text-transform: uppercase; padding-left: 100px;'>".$row['status']."</td>
+                          <td>
+                          <a style='border-radius: 15px;' class='btn btn-warning btn-sm btn-flat btn-block userinfo' data-id='".$id."'><i class='fa fa-search'></i> View</a>
+                          </td>
+                          <td>
+                          <a style='border-radius: 15px;' class='btn btn-warning btn-sm btn-flat btn-block userresult' data-id='".$id."'><i class='fa fa-search'></i> View</a>
+                          </td>
                         </tr>
+                      ";
+                            }
+                        }
+                        ?>
                         </tbody>
                     </table>
                 </div><!--end of .table-responsive-->

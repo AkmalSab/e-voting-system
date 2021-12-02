@@ -50,13 +50,27 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="tr1">
-                            <!--<td>Argentina</td>-->
-                            <td>Bendahari UTeM</td>
-                            <td>Finish</td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
+                        <?php
+                        include 'php/session.php';
+                        $query = "SELECT * FROM candidates LEFT JOIN positions ON positions.id=candidates.position_id WHERE positions.status = 'Finish' AND positions.created_by = '".$user['admin_id']."' GROUP BY positions.priority";
+                        $result = mysqli_query($conn,$query)or die( mysqli_error($conn));
+                        while($row = mysqli_fetch_array($result)){
+                            $id = $row['id'];
+                            $description = $row['description'];
+                            echo "
+                        <tr class='tr1'>
+                          <td style='text-transform: uppercase; padding-left: 100px;'>".$row['description']."</td>
+                          <td style='padding-left: 100px;'>".$row['status']."</td>
+                          <td>
+                            <a href='#'>View</a>
+                          </td>
+                          <td>
+                            <a href='#'>View</a>
+                          </td>
                         </tr>
+                      ";
+                        }
+                        ?>
                         </tbody>
                     </table>
                 </div><!--end of .table-responsive-->

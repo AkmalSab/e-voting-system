@@ -53,22 +53,50 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="tr1">
-                            <!--<td>Argentina</td>-->
-                            <td>adESg</td>
-                            <td>BENDAHARI MPP UTeM</td>
-                            <td>1</td>
-                            <td>Ongoing</td>
-                            <td colspan="3" ><a href="#">End Vote</a> <a href="#"> Edit</a> <a href="#"> Cancel</a></td>
+                        <?php
+                        include 'php/session.php';
+                        $sql = "SELECT * FROM positions WHERE created_by = '".$user['admin_id']."' AND status != 'Finish' AND status != 'Cancelled' ORDER BY priority ASC";
+                        $query = $conn->query($sql);
+                        while($row = $query->fetch_assoc()){
+                            echo "
+                        <tr>
+                          <td>".$row['u_id']."</td>
+                          <td>".$row['description']."</td>
+                          <td>".$row['max_vote']."</td>
+                          <td>".$row['status']."</td>
+                          ";
+                            if ($row['status'] == 'Pending'){
+                                echo "
+                          <td>
+                            <button class='btn btn-primary btn-sm pending btn-flat' data-id='".$row['id']."'><i class='fa fa-hourglass-start'></i> Start Vote</button>                         
+                            <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
+                            <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-times'></i> Cancel</button>
+                          </td>
                         </tr>
-                        <tr class="tr1">
-                            <!--<td>Australia</td>-->
-                            <td>bUmTy</td>
-                            <td>BENDAHARI MPP UTeM</td>
-                            <td>1</td>
-                            <td>Pending</td>
-                            <td colspan="3" ><a href="#">End Vote</a> <a href="#"> Edit</a> <a href="#"> Cancel</a></td>
-                        </tr>
+                      ";
+                            }
+                            elseif ($row['status'] == 'Ongoing'){
+                                echo "
+                          <td>
+                            <button class='btn btn-warning btn-sm status btn-flat'  data-id='".$row['id']."'><i class='fa fa-hourglass-end'></i> End Vote</button>                         
+                            <button class='btn btn-success btn-sm edit btn-flat' disabled data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
+                            <button class='btn btn-danger btn-sm delete btn-flat' disabled data-id='".$row['id']."'><i class='fa fa-times'></i> Cancel</button>
+                          </td>
+                        </tr>  
+                      ";
+                            }
+                            /*elseif ($row['status'] == 'Finish'){
+                                echo "
+                                <td>
+                                  <button class='btn btn-warning btn-sm status btn-flat' disabled data-id='".$row['id']."'><i class='fa fa-hourglass-end'></i> End Vote</button>
+                                  <button class='btn btn-success btn-sm edit btn-flat' disabled data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
+                                  <button class='btn btn-danger btn-sm delete btn-flat' disabled data-id='".$row['id']."'><i class='fa fa-trash'></i> Delete</button>
+                                </td>
+                              </tr>
+                            ";
+                            }*/
+                        }
+                        ?>
                         </tbody>
                     </table>
                 </div><!--end of .table-responsive-->

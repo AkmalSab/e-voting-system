@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>E-Voting System</title>
-    <link rel = "icon" href ="../image/Logo%20E-Undi.png" type = "image/x-icon">
+    <link rel = "icon" href ="../images/Logo_E-Undi.png" type = "image/x-icon">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bonos-admin.css">
@@ -51,20 +51,22 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="tr1">
-                            <!--<td>Argentina</td>-->
-                            <td>AJK MPP UTeM</td>
-                            <td>5031</td>
-                            <td>MUHAMMAD AKMAL KHAIRI ABDUL HALIM</td>
-                            <td>DONE VOTING</td>
+                        <?php
+                        include 'php/session.php';
+                        $sql = "SELECT *, candidates.firstname AS canfirst, candidates.lastname AS canlast, voters.firstname AS votfirst, voters.lastname AS votlast FROM votes LEFT JOIN positions ON positions.id=votes.position_id LEFT JOIN candidates ON candidates.id=votes.candidate_id LEFT JOIN voters ON voters.id=votes.voters_id ORDER BY positions.priority ASC";
+                        /*SELECT * FROM candidates LEFT JOIN positions ON positions.id=candidates.position_id where position_id IN (select position_id FROM candidates where candidate_id = '".$voter['voters_id']."') GROUP BY positions.id*/
+                        $query = $conn->query($sql);
+                        while($row = $query->fetch_assoc()){
+                            echo "
+                        <tr>
+                          <td>".$row['description']."</td>
+                          <td>".$row['voters_id']."</td>
+                          <td>".$row['votfirst'].' '.$row['votlast']."</td>
+                          <td>DONE VOTING</td>
                         </tr>
-                        <tr class="tr1">
-                            <!--<td>Australia</td>-->
-                            <td>SETIAUSAHA MPP UTeM	</td>
-                            <td>5031</td>
-                            <td>MUHAMMAD AKMAL KHAIRI ABDUL HALIM</td>
-                            <td>DONE VOTING</td>
-                        </tr>
+                      ";
+                        }
+                        ?>
                         </tbody>
                     </table>
                 </div><!--end of .table-responsive-->

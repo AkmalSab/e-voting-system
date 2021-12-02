@@ -51,30 +51,32 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="tr1">
-                            <!--<td>Argentina</td>-->
-                            <td>MUHAMMAD AKMAL KHAIRI ABDUL HALIM</td>
-                            <td><img class="photo" src="../images/hacker.png"></td>
-                            <td>0182426676</td>
-                            <td>Verified</td>
-                            <td colspan="3" ><a href="#">Edit</a> <a href="#"> Delete</a></td>
+                        <?php
+                        include 'php/session.php';
+                        $sql = "SELECT * FROM voters where status ='Verified'";
+                        $query = $conn->query($sql);
+                        while($row = $query->fetch_assoc()){
+                            $image = (!empty($row['photo'])) ? '../images/'.$row['photo'] : '../images/profile.jpg';
+                            echo "
+                        <tr>
+                          <td>".$row['firstname']." ".$row['lastname']."</td>
+                          <td>
+                            <img src='".$image."' width='30px' height='30px'>
+                            
+                          </td>
+                          <td>".$row['phone']."</td>
+                          <td>
+                          ".$row['status']."
+                          </td>
+                          <td>
+                            <button class='btn btn-primary btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
+                            <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-trash'></i> Delete</button>
+
+                          </td>
                         </tr>
-                        <tr class="tr1">
-                            <!--<td>Australia</td>-->
-                            <td>MUHAMMAD AKMAL SABRI</td>
-                            <td><img class="photo" src="../images/hacker.png"></td>
-                            <td>0182428781</td>
-                            <td>Verified</td>
-                            <td colspan="3" ><a href="#">Edit</a> <a href="#"> Delete</a></td>
-                        </tr>
-                        <tr class="tr1">
-                            <!--<td>Australia</td>-->
-                            <td>WAN MUHAMMAD ISMAT WAN AZMY</td>
-                            <td><img class="photo" src="../images/hacker.png"></td>
-                            <td>0131223131</td>
-                            <td>Verified</td>
-                            <td colspan="3" ><a href="#">Edit</a> <a href="#"> Delete</a></td>
-                        </tr>
+                      ";
+                        }
+                        ?>
                         </tbody>
                     </table>
                 </div><!--end of .table-responsive-->

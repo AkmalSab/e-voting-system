@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>E-Voting System</title>
-    <link rel = "icon" href ="../image/Logo%20E-Undi.png" type = "image/x-icon">
+    <link rel = "icon" href ="../images/Logo_E-Undi.png" type = "image/x-icon">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bonos-admin.css">
@@ -54,48 +54,27 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="tr1">
-                            <!--<td>Argentina</td>-->
-                            <td>MPP UTeM</td>
-                            <td>Ongoing</td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
+                        <?php
+                        include 'php/session.php';
+                        $query = "SELECT * FROM candidates LEFT JOIN positions ON positions.id=candidates.position_id WHERE positions.status = 'Ongoing' AND positions.created_by = '".$user['admin_id']."' GROUP BY positions.priority";
+                        $result = mysqli_query($conn,$query)or die( mysqli_error($conn));
+                        while($row = mysqli_fetch_array($result)){
+                            $id = $row['id'];
+                            $description = $row['description'];
+                            echo "
+                        <tr>
+                          <td style='text-transform: uppercase; padding-left: 100px;'>".$row['description']."</td>
+                          <td style='padding-left: 100px;'>".$row['status']."</td>
+                          <td>
+                            <a href='#'>View</a>
+                          </td>
+                          <td>
+                            <a href='#'>View</a>
+                          </td>
                         </tr>
-                        <tr class="tr1">
-                            <!--<td>Australia</td>-->
-                            <td>MPP UiTM</td>
-                            <td>Ongoing</td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
-                        </tr>
-                        <tr class="tr1">
-                            <!--<td>Greece</td>-->
-                            <td>MPP UPM</td>
-                            <td>Ongoing</td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
-                        </tr>
-                        <tr class="tr1">
-                            <!--<td>Luxembourg</td>-->
-                            <td>MPP UPNM</td>
-                            <td>Ongoing</td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
-                        </tr>
-                        <tr class="tr1">
-                            <!--<td>Russia</td>-->
-                            <td>MPP UPSI</td>
-                            <td>Ongoing</td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
-                        </tr>
-                        <tr class="tr1">
-                            <!--<td>Sweden</td>-->
-                            <td>MPP USIM</td>
-                            <td>Ongoing</td>
-                            <td><a href="#">View</a></td>
-                            <td><a href="#">View</a></td>
-                        </tr>
+                      ";
+                        }
+                        ?>
                         </tbody>
                     </table>
                 </div><!--end of .table-responsive-->

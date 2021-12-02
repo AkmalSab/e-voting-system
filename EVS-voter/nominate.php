@@ -45,11 +45,24 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="tr1">
-                            <td>TIMBALAN MPP UTEM</td>
-                            <td>2021-06-27 21:50:00</td>
-                            <td><a href="#">Nominate Now</a></td>
+                        <?php
+                        include 'php/session.php';
+                        $query = "SELECT * FROM positions WHERE status = 'Pending'";
+                        $result = mysqli_query($conn,$query);
+                        while($row = mysqli_fetch_array($result)){
+                            $id = $row['id'];
+                            $description = $row['description'];
+                            echo "
+                        <tr>
+                          <td style='text-transform: uppercase; padding-left: 100px;'>".$row['description']."</td>
+                          <td style='text-transform: uppercase; padding-left: 100px;'>".$row['nominationdate']."</td>
+                          <td>
+                          <a style='border-radius: 15px;' class='btn btn-success btn-sm btn-flat btn-block canelect' data-id='".$id."'><i class='fa fa-plus'></i> Nominate Now</a>
+                          </td>
                         </tr>
+                      ";
+                        }
+                        ?>
                         </tbody>
                     </table>
                 </div><!--end of .table-responsive-->

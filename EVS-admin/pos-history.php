@@ -51,22 +51,22 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="tr1">
-                            <!--<td>Argentina</td>-->
-                            <td>AJK MPP UTeM</td>
-                            <td>1</td>
-                            <td>Finish</td>
-                            <td>2021-06-27 21:35:18</td>
-                            <td>2021-06-28 18:30:00</td>
+                        <?php
+                        include 'php/session.php';
+                        $sql = "SELECT * FROM positions WHERE status= 'Finish' OR status= 'Cancelled' ORDER BY priority ASC";
+                        $query = $conn->query($sql);
+                        while($row = $query->fetch_assoc()){
+                            echo "
+                        <tr>
+                          <td>".$row['description']."</td>
+                          <td>".$row['max_vote']."</td>
+                          <td>".$row['status']."</td>
+                          <td>".$row['startdate']."</td>
+                          <td>".$row['enddate']."</td>
                         </tr>
-                        <tr class="tr1">
-                            <!--<td>Australia</td>-->
-                            <td>Pemilihan MPP</td>
-                            <td>1</td>
-                            <td>Cancelled</td>
-                            <td>2021-08-30 13:02:28</td>
-                            <td>2021-08-31 22:02:00</td>
-                        </tr>
+                      ";
+                        }
+                        ?>
                         </tbody>
                     </table>
                 </div><!--end of .table-responsive-->

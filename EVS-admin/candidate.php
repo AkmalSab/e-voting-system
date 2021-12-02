@@ -53,20 +53,29 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="tr1">
-                            <td>AJK MPP UTeM</td>
-                            <td><img class="photo" src="../images/hacker.png"></td>
-                            <td>IMRAN ISMAIL</td>
-                            <td><a href="#">View</a></td>
-                            <td colspan="2" ><a href="#">Edit</a> <a href="#"> Delete</a></td>
+                        <?php
+                        include 'php/session.php';
+                        $sql = "SELECT *, candidates.id AS canid FROM candidates LEFT JOIN positions ON positions.id=candidates.position_id WHERE candidates.status = 'Approve' ORDER BY positions.priority ASC";
+                        $query = $conn->query($sql);
+                        while($row = $query->fetch_assoc()){
+                            $image = (!empty($row['photo'])) ? '../images/'.$row['photo'] : '../images/profile.jpg';
+                            echo "
+                        <tr>
+                          <td>".$row['description']."</td>
+                          <td>
+                            <img src='".$image."' width='30px' height='30px'>
+                            <a href='#edit_photo' data-toggle='modal' class='pull-right photo' data-id='".$row['canid']."'><span class='fa fa-edit'></span></a>
+                          </td>
+                          <td>".$row['firstname']." ".$row['lastname']."</td>
+                          <td><a href='#platform' data-toggle='modal' class='btn btn-info btn-sm btn-flat platform' data-id='".$row['canid']."'><i class='fa fa-search'></i> View</a></td>
+                          <td>
+                            <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['canid']."'><i class='fa fa-edit'></i> Edit</button>
+                            <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['canid']."'><i class='fa fa-trash'></i> Delete</button>
+                          </td>
                         </tr>
-                        <tr class="tr1">
-                            <td>PENGERUSI MPP UTeM</td>
-                            <td><img class="photo" src="../images/hacker.png"></td>
-                            <td>AHMAD ADI IMAN ZURAIDI</td>
-                            <td><a href="#">View</a></td>
-                            <td colspan="2" ><a href="#">Edit</a> <a href="#"> Delete</a></td>
-                        </tr>
+                      ";
+                        }
+                        ?>
                         </tbody>
                     </table>
                 </div><!--end of .table-responsive-->
