@@ -66,7 +66,7 @@
                           <td style='text-transform: uppercase; padding-left: 100px;'>".$row['description']."</td>
                           <td style='padding-left: 100px;'>".$row['status']."</td>
                           <td>
-                            <a href='#'>View</a>
+                            <a href='view_candidate.php?id=".$row['position_id']."'> View </a>
                           </td>
                           <td>
                             <a href='#'>View</a>
