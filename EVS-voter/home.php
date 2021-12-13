@@ -62,13 +62,13 @@
                           <td style='text-transform: uppercase; padding-left: 100px;'>" . $row['startdate'] . "</td>
                           <td style='text-transform: uppercase; padding-left: 100px;'>" . $row['enddate'] . "</td>
                           <td>
-                          <a href='view_candidate.php?id=".$row['position_id']."'> View </a>
+                            <a href='view_candidate.php?id=" . $row['position_id'] . "'> View </a>
                           </td>
                           <td>
-                            <a href='#'> View </a>
+                            <a href='view_result.php?id=" . $row['position_id'] . "'> View </a>
                           </td>
                           <td>
-                            <a href='#'> View </a>
+                            <a href='vote_candidate.php?id=" . $row['position_id'] . "'> View </a>
                           </td>
                         </tr>
                       ";
@@ -79,13 +79,13 @@
                           <td style='text-transform: uppercase; padding-left: 100px;'>" . $row['startdate'] . "</td>
                           <td style='text-transform: uppercase; padding-left: 100px;'>" . $row['enddate'] . "</td>
                           <td>
-                            <a href='view_candidate.php?id=".$row['position_id']."'> View </a>
+                            <a href='view_candidate.php?id=" . $row['position_id'] . "'> View </a>
                           </td>
                           <td>
-                            <a href='#'> View </a>
+                            <a href='view_result.php?id=" . $row['position_id'] . "'> View </a>
                           </td>
                           <td>
-                            <a href='#'> View </a>
+                            <a href='vote_candidate.php?id=" . $row['position_id'] . "'> View </a>
                           </td>
                         </tr>
                       ";
