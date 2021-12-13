@@ -65,7 +65,7 @@
                             <a href='#edit_photo' data-toggle='modal' class='pull-right photo' data-id='".$row['canid']."'><span class='fa fa-edit'></span></a>
                           </td>
                           <td>".$row['firstname']." ".$row['lastname']."</td>
-                          <td><a href='#platform' data-toggle='modal' class='btn btn-info btn-sm btn-flat platform' data-id='".$row['canid']."'><i class='fa fa-search'></i> View</a></td>
+                          <td>".$row['platform']."</td>
                           <td>
                             <button class='btn btn-success btn-sm approve btn-flat' data-id='".$row['canid']."'><i class='fa fa-check'></i> Confirm</button>
                             <button class='btn btn-danger btn-sm reject btn-flat' data-id='".$row['canid']."'><i class='fa fa-trash'></i> Reject</button>

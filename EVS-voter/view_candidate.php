@@ -27,10 +27,16 @@ include 'php/session.php';
     </header>
 
     <div class="div1">
-        <h1 class="title">Election</h1>
-        <div class="history">
+        <?php
+        $vquery = "SELECT * FROM candidates LEFT JOIN positions ON positions.id=candidates.position_id WHERE positions.id='" . $_GET['id'] . "'";
+        $vresult = mysqli_query($conn, $vquery) or die(mysqli_error($conn));
+        if ($vrow = mysqli_fetch_array($vresult)) {
+            $description = $vrow['description'];
+            echo"<h1 class='title'> " . $description . "</h1>";
+        }
+        ?>        <!--<div class="history">
             <a href="#">Enroll Election</a>
-        </div>
+        </div>-->
 
         <div class="container">
             <div class="row">

@@ -47,7 +47,6 @@
                             <th>Name</th>
                             <th>Election</th>
                             <th>Voting Status</th>
-                            <th>Tools</th>
 
                         </tr>
                         </thead>
@@ -65,7 +64,6 @@
                           <td>".$row['firstname']."</td>
                           <td>".$row['description']."</td>
                           <td>PENDING VOTING</td>
-                          <td><button class='btn btn-warning btn-sm notify btn-flat' data-id='".$row['id']."'><i class='fa fa-bell'></i> Notify</button></td>
                         </tr>
                       ";
                         }
