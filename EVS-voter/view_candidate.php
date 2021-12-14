@@ -11,7 +11,9 @@ include 'php/session.php';
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bonos-voter.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -20,7 +22,7 @@ include 'php/session.php';
         <nav>
             <ul class="nav__links">
                 <li><a href="home.php">Election</a></li>
-                <li><a href="nomination.php">Nomination</a></li>
+                <!-- <li><a href="nomination.php">Nomination</a></li> -->
             </ul>
         </nav>
         <a class="cta" href="logout.php">Logout</a>
@@ -32,9 +34,10 @@ include 'php/session.php';
         $vresult = mysqli_query($conn, $vquery) or die(mysqli_error($conn));
         if ($vrow = mysqli_fetch_array($vresult)) {
             $description = $vrow['description'];
-            echo"<h1 class='title'> " . $description . "</h1>";
+            echo "<h1 class='title'> " . $description . "</h1>";
         }
-        ?>        <!--<div class="history">
+        ?>
+        <!--<div class="history">
             <a href="#">Enroll Election</a>
         </div>-->
 
