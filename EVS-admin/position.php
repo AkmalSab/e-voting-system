@@ -32,7 +32,7 @@
 <div class="div1">
     <h1 class="title">Position</h1>
     <div class="history">
-        <a href="#">New</a>
+        <a href="add_position.php">New</a>
         <a href="pos-history.php">History</a>
     </div>
 
@@ -45,9 +45,8 @@
                         <thead>
                         <tr class="trh">
                             <!--<th>Country</th>-->
-                            <th>Join Code</th>
+                            <!--<th>Join Code</th>-->
                             <th>Description</th>
-                            <th>Maximum Vote</th>
                             <th>Status</th>
                             <th>Tools</th>
                         </tr>
@@ -60,17 +59,15 @@
                         while($row = $query->fetch_assoc()){
                             echo "
                         <tr>
-                          <td>".$row['u_id']."</td>
-                          <td>".$row['description']."</td>
-                          <td>".$row['max_vote']."</td>
+                                                    <td>".$row['description']."</td>
                           <td>".$row['status']."</td>
                           ";
                             if ($row['status'] == 'Pending'){
                                 echo "
                           <td>
-                            <button class='btn btn-primary btn-sm pending btn-flat' data-id='".$row['id']."'><i class='fa fa-hourglass-start'></i> Start Vote</button>                         
-                            <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
-                            <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-times'></i> Cancel</button>
+                            <a href='position_start.php?id=".$row['id']."' target='_blank'>Start Vote</a> 
+                            <a href='position_edit.php?id=".$row['id']."' target='_blank'>Edit</a> 
+                            <a href='position_cancel.php?id=".$row['id']."' target='_blank'>Cancel</a> 
                           </td>
                         </tr>
                       ";
@@ -78,9 +75,9 @@
                             elseif ($row['status'] == 'Ongoing'){
                                 echo "
                           <td>
-                            <button class='btn btn-warning btn-sm status btn-flat'  data-id='".$row['id']."'><i class='fa fa-hourglass-end'></i> End Vote</button>                         
-                            <button class='btn btn-success btn-sm edit btn-flat' disabled data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
-                            <button class='btn btn-danger btn-sm delete btn-flat' disabled data-id='".$row['id']."'><i class='fa fa-times'></i> Cancel</button>
+                            <a href='position_end.php?id=".$row['id']."' target='_blank'>End Vote</a>
+                            <a href='position_cancel.php?id=".$row['id']."' target='_blank'>Cancel</a> 
+
                           </td>
                         </tr>  
                       ";
