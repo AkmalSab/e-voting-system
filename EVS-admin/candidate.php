@@ -71,8 +71,8 @@
                             <a href='view_manifesto.php?id=".$row['canid']."' target='_blank'> View </a>
                           </td>
                           <td>
-                            <a href='edit_candidate.php?id=".$row['canid']."' target='_blank'>Edit</a> 
-                            <a href='candidate_deleted.php?id=".$row['canid']."' target='_blank'>Delete</a> 
+                            <a href='edit_candidate.php?id=".$row['canid']."'>Edit</a> 
+                            <a href='candidate_deleted.php?id=".$row['canid']."' >Delete</a> 
  
                           </td>
                         </tr>

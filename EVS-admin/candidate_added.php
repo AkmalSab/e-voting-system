@@ -9,7 +9,7 @@ if(isset($_POST['add'])){
     $platform = $_POST['platform'];
     $filename = $_FILES['photo']['name'];
     if(!empty($filename)){
-        move_uploaded_file($_FILES['photo']['tmp_name'], 'images'.$filename);
+        move_uploaded_file($_FILES['photo']['tmp_name'], '../images/'.$filename);
     }
     $status = 'Approve';
 

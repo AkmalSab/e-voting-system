@@ -39,7 +39,7 @@
             <div class="cs-12">
 
                 <div>
-                    <form class="form-horizontal" method="POST" action="candidate_added.php">
+                    <form class="form-horizontal" method="POST" action="candidate_added.php " enctype="multipart/form-data">
                         <table border="1">
                             <tr class="trh">
                                 <td colspan="2">
