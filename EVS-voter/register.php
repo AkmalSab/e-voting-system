@@ -59,7 +59,7 @@
             </div>
         </form>
     </div>
-    <script src="js/bonos-admin.js"></script>
+    <script src="js/bonos-voter.js"></script>
 </body>
 
 </html>

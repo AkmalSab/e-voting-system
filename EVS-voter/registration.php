@@ -1,5 +1,7 @@
 <?php
-include 'php/session.php';
+// include 'php/session.php';
+
+include 'php/dbconn.php';
 
 if (isset($_POST['add'])) {
     // get the form's data
@@ -29,28 +31,33 @@ if (isset($_POST['add'])) {
     if (mysqli_num_rows($sql2) == 1) {
         // User already exist
         echo 'User already exist';
-        $_SESSION['error'] = 'User already exist';
+        // $_SESSION['error'] = 'User already exist';
     } else {
         // get today's date
         $date = date('Y-m-d');
         // set initial status
         $status = "Verified";
-        // hash the password
+        // hash password
         $passwordhashed = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        // insert new user's row
-        $sql = "INSERT INTO `voters` (`voters_id`, `password`, `firstname`, `lastname`, `photo`, `phone`, `created_on`, `status`) VALUES ('$voter_id', '$passwordhashed', '$firstname', '$lastname', '$filename', '$phone', '$date', '$status')";
+        // insert query
+        $sql = "INSERT INTO `voters` (`voters_id`, `password`, `firstname`, `lastname`, `photo`, `status`, `phone`, `created_on`, `logintime`) VALUES
+        ('$voter_id', '$passwordhashed', '$firstname', '$lastname', '$filename', '$status', '$phone', '$date', '00:00:00');";
 
-        // run the query
         if ($conn->query($sql)) {
-            echo 'register success';
-            // redirect to homepage      
+            $_SESSION['success'] = 'Registration success';
+            // redirect to register
+            header('location: index.php');
+            exit();
         } else {
-            echo 'x ok';
-            // display error
+            // echo $conn->error;
+            // redirect to register
             $_SESSION['error'] = 'Register Fail';
+            header('location: register.php');
+            exit();
         }
     }
 } else {
-    echo 'tiberr';
     // redirect to register
+    header('location: register.php');
+    exit();
 }
