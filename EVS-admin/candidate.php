@@ -32,7 +32,7 @@
 <div class="div1">
     <h1 class="title">Candidate</h1>
     <div class="history">
-        <a href="#">New</a>
+        <a href="add_candidate.php">New</a>
         <a href="pen-candidate.php">Pending Candidates</a>
     </div>
 
@@ -67,10 +67,13 @@
                             <a href='#edit_photo' data-toggle='modal' class='pull-right photo' data-id='".$row['canid']."'><span class='fa fa-edit'></span></a>
                           </td>
                           <td>".$row['firstname']." ".$row['lastname']."</td>
-                          <td>".$row['platform']."</td>
                           <td>
-                            <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['canid']."'><i class='fa fa-edit'></i> Edit</button>
-                            <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['canid']."'><i class='fa fa-trash'></i> Delete</button>
+                            <a href='view_manifesto.php?id=".$row['canid']."' target='_blank'> View </a>
+                          </td>
+                          <td>
+                            <a href='edit_candidate.php?id=".$row['canid']."'>Edit</a> 
+                            <a href='candidate_deleted.php?id=".$row['canid']."' >Delete</a> 
+ 
                           </td>
                         </tr>
                       ";

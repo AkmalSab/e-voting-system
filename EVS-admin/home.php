@@ -63,10 +63,10 @@
                             $description = $row['description'];
                             echo "
                         <tr>
-                          <td style='text-transform: uppercase; padding-left: 100px;'>".$row['description']."</td>
-                          <td style='padding-left: 100px;'>".$row['status']."</td>
+                          <td class='text-center' style='text-transform: uppercase;'>".$row['description']."</td>
+                          <td class='text-center'>".$row['status']."</td>
                           <td>
-                            <a href='view_candidate.php?id=".$row['position_id']."'> View </a>
+                            <a href='view_candidate.php?id=".$row['position_id']."' target='_blank'> View </a>
                           </td>
                           <td>
                             <a href='#'>View</a>

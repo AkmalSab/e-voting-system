@@ -1,3 +1,4 @@
+<?php include 'php/session.php'; ?>
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
@@ -30,7 +31,7 @@
 </header>
 
 <div class="div1">
-    <h1 class="title">History</h1>
+    <h1 class="title">Edit Position</h1>
     <div class="history">
     </div>
 
@@ -39,41 +40,37 @@
             <div class="cs-12">
 
                 <div>
-                    <table>
-                        <thead>
-                        <tr class="trh">
-                            <!--<th>Country</th>-->
-                            <th>Election Title</th>
-                            <th>Status</th>
-                            <th>Candidates</th>
-                            <th>Result</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-                        include 'php/session.php';
-                        $query = "SELECT * FROM candidates LEFT JOIN positions ON positions.id=candidates.position_id WHERE positions.status = 'Finish' AND positions.created_by = '".$user['admin_id']."' GROUP BY positions.priority";
-                        $result = mysqli_query($conn,$query)or die( mysqli_error($conn));
-                        while($row = mysqli_fetch_array($result)){
-                            $id = $row['id'];
-                            $description = $row['description'];
-                            echo "
-                        <tr class='tr1'>
-                          <td style='text-transform: uppercase; padding-left: 100px;'>".$row['description']."</td>
-                          <td style='padding-left: 100px;'>".$row['status']."</td>
-                          <td>
-                            <a href='view_history.php?id=".$row['id']."' target='_blank'> View </a>
-                          </td>
-                          <td>
-                            <a href='#'>View</a>
-                          </td>
-                        </tr>
-                      ";
-                        }
-                        ?>
-                        </tbody>
-                    </table>
-                </div><!--end of .table-responsive-->
+
+                    <?php
+                    $candidate = array();
+                    $query = "SELECT * FROM positions WHERE id='" . $_GET['id'] . "'";
+                    $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
+                    while ($row = mysqli_fetch_array($result)) {
+                        $candidate = $row;
+                        /*                        print_r($candidate);*/
+                    }
+                    ?>
+
+                    <form class="form-horizontal" method="POST" action="position_edited.php">
+                        <input type="hidden" class="id" name="id" value="<?php echo $_GET['id']?>">
+                        <table border="1">
+                            <tr class="trh">
+                                <td colspan="2">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Description: </th>
+                                <td><input type="text" id="description" name="description" size="100%" value="<?php print_r($candidate[3]); ?>"required></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="center">
+                                    <!--<button type="reset">CLEAR FORM</button>-->
+                                    <input type="submit" name="edit" value="SUBMIT"/>
+                                </td>
+                            </tr>
+                        </table>
+                </div>
+                <!--end of .table-responsive-->
             </div>
         </div>
     </div>

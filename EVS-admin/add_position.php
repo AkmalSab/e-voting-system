@@ -30,7 +30,7 @@
 </header>
 
 <div class="div1">
-    <h1 class="title">History</h1>
+    <h1 class="title">Add Position</h1>
     <div class="history">
     </div>
 
@@ -39,41 +39,29 @@
             <div class="cs-12">
 
                 <div>
-                    <table>
-                        <thead>
-                        <tr class="trh">
-                            <!--<th>Country</th>-->
-                            <th>Election Title</th>
-                            <th>Status</th>
-                            <th>Candidates</th>
-                            <th>Result</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-                        include 'php/session.php';
-                        $query = "SELECT * FROM candidates LEFT JOIN positions ON positions.id=candidates.position_id WHERE positions.status = 'Finish' AND positions.created_by = '".$user['admin_id']."' GROUP BY positions.priority";
-                        $result = mysqli_query($conn,$query)or die( mysqli_error($conn));
-                        while($row = mysqli_fetch_array($result)){
-                            $id = $row['id'];
-                            $description = $row['description'];
-                            echo "
-                        <tr class='tr1'>
-                          <td style='text-transform: uppercase; padding-left: 100px;'>".$row['description']."</td>
-                          <td style='padding-left: 100px;'>".$row['status']."</td>
-                          <td>
-                            <a href='view_history.php?id=".$row['id']."' target='_blank'> View </a>
-                          </td>
-                          <td>
-                            <a href='#'>View</a>
-                          </td>
-                        </tr>
-                      ";
-                        }
-                        ?>
-                        </tbody>
-                    </table>
-                </div><!--end of .table-responsive-->
+                    <form class="form-horizontal" method="POST" action="positions_added.php">
+                        <table border="1">
+                            <tr class="trh">
+                                <td colspan="2">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Position Name:</th>
+                                <td><input type="text" id="description" name="description" size="100%" required></td>
+                            </tr>
+                            <tr>
+                                <th>Start Election:</th>
+                                <td><input id="dateInput" name="date" type="datetime-local" step="1" size="100%" required></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <button type="reset">CLEAR FORM</button>
+                                    <input type="submit" name="add" value="SUBMIT"/>
+                                </td>
+                            </tr>
+                        </table>
+                </div>
+                <!--end of .table-responsive-->
             </div>
         </div>
     </div>
