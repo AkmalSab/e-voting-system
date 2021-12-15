@@ -14,7 +14,7 @@ if(isset($_POST['add'])){
     $filename = $_FILES['photo']['name'];
     
     if(!empty($filename)){
-        move_uploaded_file($_FILES['photo']['tmp_name'], 'images/'.$filename);
+        move_uploaded_file($_FILES['photo']['tmp_name'], '../images/'.$filename);
     }
 
     // sql to select user's row to check existence
@@ -28,7 +28,7 @@ if(isset($_POST['add'])){
         // get today's date
         $date = date('Y-m-d');
         // set initial status
-        $status = "Not Verified";
+        $status = "Verified";
         // hash the password
         $passwordhashed = password_hash($_POST['password'], PASSWORD_DEFAULT);
         // insert new user's row
@@ -37,11 +37,10 @@ if(isset($_POST['add'])){
         // run the query
         if($conn->query($sql)){
             // redirect to homepage            
-            header('location: home.html');
+            header('location: index.php');
             exit();
         }
         else{
-            echo 'x ok';
             // display error
             $_SESSION['error'] = 'Register Fail';
             header('location: register.php');

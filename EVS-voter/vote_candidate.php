@@ -135,7 +135,7 @@ include 'php/session.php';
                 <p style="color: red;">
                     <b> Election Instructions </b>
                 </p>
-                <p style="">
+                <p>
                     1. Please read the manifesto first before proceed with the voting <br>
                     2. Please vote and choose the candidate(s) you agree to vote before click the submit button <br>
                     3. Any change of candidate will not be accepted by the committee <br>
