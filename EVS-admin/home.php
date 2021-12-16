@@ -69,7 +69,7 @@
                             <a href='view_candidate.php?id=".$row['position_id']."' target='_blank'> View </a>
                           </td>
                           <td>
-                            <a href='#'>View</a>
+                            <a href='view_result.php?id=".$row['position_id']."'>View</a>
                           </td>
                         </tr>
                       ";
